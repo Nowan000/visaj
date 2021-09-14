@@ -19,7 +19,6 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
                     <img src="images/logo.png" class="img-fluid logo">
                 </a>
 
@@ -32,6 +31,7 @@
                 <div class="text-left ms-3 me-lg-auto mb-2 mb-md-0">
                     <button type="button" class="btn btn-primary me-2">COMPARER</button>
                 </div>
+
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                 </form>
@@ -44,6 +44,909 @@
             </div>
         </div>
     </header>
+
+    <!-- CORPS -->
+    <div class="container mb-3 d-flex flex-column" id="corps">
+        <!-- MIN WIDTH 1400px => affiche 4 articles sur une ligne -->
+        <!--
+        Intégrer boucle de récup produit :
+            Une ligne affiche 4 produits
+        -->
+
+        <script>
+
+            /* REQUETE SQL RECUPERATION DES PRODUITS*/
+
+            /* ATTRIBUTS DES PRODUITS */
+            let imgSrc = 'images/produits/perruque-blonde-platine-star-de-cinema-de.jpg';
+            let titre = 'titre1';
+            let description = 'blabla';
+            let prix = '20';
+            let typeProduit;
+            let id;
+            let nbProduits = 34;
+            let nbLignes = nbProduits/4;
+
+            var ligne = '<div class="container-xxl mt-3 d-flex flex-row justify-content-around">';
+
+            var produit = '<div class="card me-3 sm" style="width: 18rem;">\n' +
+                '                <img src="' + imgSrc + '" class="card-img-top" alt="' + titre + '">\n' +
+                '                <div class="card-body">\n' +
+                '                    <h5 class="card-title">' + titre + '</h5>\n' +
+                '                    <p class="card-text">' + description + '</p>\n' +
+                '                    <div class="d-flex flex-row justify-content-around align-items-center">\n' +
+                '                        <a href="#" class="btn btn-primary">Ajouter</a>\n' +
+                '                        <div class="form-check form-switch">\n' +
+                '                            <input class="form-check-input" type="checkbox" id="' + id + '">\n' +
+                '                            <label class="form-check-label" for="' + id + '">A COMPARER</label>\n' +
+                '                        </div>\n' +
+                '                    </div>\n' +
+                '                </div>\n' +
+                '            </div>';
+
+            var finDiv = '</div>';
+
+            for (i=0; i<nbLignes; i++) {
+
+                document.getElementById("corps").innerHTML += ligne;
+
+                for (c=0; c<4; c++) {
+                    document.getElementById("corps").innerHTML += produit;
+                }
+
+                document.getElementById("corps").innerHTML += finDiv;
+            }
+
+
+        </script>
+
+        <div class="container-xxl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xxl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAX WIDTH 1299px => affiche 3 articles sur une ligne -->
+        <!--
+        Intégrer boucle de récup produit :
+            Une ligne affiche 3 produits
+        -->
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <!--                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">-->
+                        <!--                            <label class="btn btn-outline-primary" for="btncheck1">A COMPARER</label>-->
+                        <!--                        </div>-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-xl mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAX WIDTH 989px => affiche 2 articles sur une ligne -->
+        <!--
+        Intégrer boucle de récup produit :
+            Une ligne affiche 2 produits
+        -->
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <!--                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">-->
+                        <!--                            <label class="btn btn-outline-primary" for="btncheck1">A COMPARER</label>-->
+                        <!--                        </div>-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <!--                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">-->
+                        <!--                            <label class="btn btn-outline-primary" for="btncheck1">A COMPARER</label>-->
+                        <!--                        </div>-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MAX WIDTH 769px => affiche 1 article sur une ligne -->
+        <!--
+        Intégrer boucle de récup produit :
+            Une ligne affiche 1 produits
+        -->
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <!--                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">-->
+                        <!--                            <label class="btn btn-outline-primary" for="btncheck1">A COMPARER</label>-->
+                        <!--                        </div>-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3 sm" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <div class="d-flex flex-row justify-content-around align-items-center">
+                        <a href="#" class="btn btn-primary">Ajouter</a>
+                        <!--                        <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">-->
+                        <!--                            <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">-->
+                        <!--                            <label class="btn btn-outline-primary" for="btncheck1">A COMPARER</label>-->
+                        <!--                        </div>-->
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">A COMPARER</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="card-img-top" alt="perruque blonde">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque blonde</h5>
+                    <p class="card-text">Vous ne trouverez pas plus glamour que cette perruque blonde platine. Elle sera parfaite pour s'immerger dans les années 50-60 ! Taille unique</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+        <div class="container-md mt-3 d-flex flex-row justify-content-around">
+            <div class="card me-3" style="width: 18rem;">
+                <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="card-img-top" alt="perruque harley queen">
+                <div class="card-body">
+                    <h5 class="card-title">Perruque Harley Queen</h5>
+                    <p class="card-text">Perruque de Harley Quinn de Suicide Squad. Produit sous licence officielle Suicide Squad ™. Parfait pour compléter votre déguisement.</p>
+                    <a href="#" class="btn btn-primary">Ajouter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER MIN WIDTH 630px-->
+    <footer class="footer-xl bg-dark d-flex flex-row justify-content-around align-items-center p-3 border-top">
+        <p class="mb-0 text-muted">© 2021 Company, Inc</p>
+
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 link-dark text-decoration-none">
+            <img src="images/logo.png" class="img-fluid logo">
+        </a>
+
+        <div class="d-flex flex-row">
+            <ul class="nav">
+                <li><a href="#" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">Contact</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">A propos</a></li>
+            </ul>
+
+            <button type="button" class="btn btn-primary me-2">COMPARER</button>
+        </div>
+    </footer>
+
+    <!-- FOOTER MAX WIDTH 629px-->
+    <footer class="footer-l bg-dark d-flex flex-column justify-content-around align-items-center p-3 border-top">
+        <p class="mb-0 text-muted">© 2021 Company, Inc</p>
+
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 link-dark text-decoration-none">
+            <img src="images/logo.png" class="img-fluid logo">
+        </a>
+
+        <div class="d-flex flex-row">
+            <ul class="nav">
+                <li><a href="#" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">Contact</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">A propos</a></li>
+            </ul>
+
+            <button type="button" class="btn btn-primary me-2">COMPARER</button>
+        </div>
+    </footer>
 
 </body>
 </html>

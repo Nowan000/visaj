@@ -1,3 +1,11 @@
+/*** GENERAL ***/
+
+body {
+    background: url("../images/background.jpg");
+}
+
+/*** HEADER ***/
+
 .b-example-divider {
     height: 3rem;
     background-color: rgba(0, 0, 0, .1);
@@ -31,6 +39,13 @@
     outline: 0;
 }
 
+.logo {
+    max-width: 200px;
+    height: auto;
+}
+
+/*** BOUTTON ***/
+
 .btn-primary {
     color: #fff;
     background-color: #ff13a7;
@@ -41,6 +56,13 @@
     color: #000000;
     background-color: #EDEDED;
     border-color: #444444;
+}
+
+.btn-primary:focus {
+    color: #fff;
+    background-color: #ff13a7;
+    border-color: #444444;
+    box-shadow: none;
 }
 
 .btn-secondary {
@@ -55,7 +77,62 @@
     border-color: #444444;
 }
 
-.logo {
-    max-width: 200px;
-    height: auto;
+@media (min-width: 1300px) {
+    .container-xl{
+        display: none !important;
+    }
+    .container-lg{
+        display: none !important;
+    }
+    .container-md{
+        display: none !important;
+    }
+}
+
+@media (min-width: 990px) and (max-width: 1299px) {
+    .container-xxl{
+        display: none !important;
+    }
+    .container-lg{
+        display: none !important;
+    }
+    .container-md{
+        display: none !important;
+    }
+}
+
+@media (min-width: 770px) and (max-width: 989px) {
+    .container-xxl{
+        display: none !important;
+    }
+    .container-xl{
+        display: none !important;
+    }
+    .container-md{
+        display: none !important;
+    }
+}
+
+@media (max-width: 769px) {
+    .container-xxl{
+        display: none !important;
+    }
+    .container-xl{
+        display: none !important;
+    }
+    .container-lg{
+        display: none !important;
+    }
+}
+
+@media (max-width: 629px) {
+    .footer-xl{
+        display: none !important;
+    }
+}
+
+@media (min-width: 630px) {
+    .footer-l{
+        display: none !important;
+    }
 }
