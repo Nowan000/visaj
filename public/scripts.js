@@ -1,12 +1,14 @@
 let socket = io();
-
+let isConnected = false;
 
 //connection
 let userLName = document.querySelector('#user_lastname');
-let userFName = document.querySelector('#user_firestname');
+let userFName = document.querySelector('#user_firstname');
 let userPwd = document.querySelector('#user_password');
 let userMail = document.querySelector('#user_email');
-let signInForm = document.querySelector('form');
+let signInForm = document.querySelector('#signIn');
+let connexionForm = document.querySelector('#connexion');
+
 
 
 
@@ -26,4 +28,8 @@ connectionForm.addEventListener('submit', () => {
         password : userPwd.value,
     }
     socket.emit('connection', userConnection);
+});
+
+socket.on('isConnect', state => {
+    isConnected = state;
 });
