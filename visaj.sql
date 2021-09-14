@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 14 sep. 2021 à 13:27
+-- Généré le : mar. 14 sep. 2021 à 13:37
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -103,8 +103,15 @@ CREATE TABLE `users` (
   `user_lastname` varchar(55) NOT NULL,
   `user_email` varchar(55) NOT NULL,
   `user_password` varchar(55) NOT NULL,
-  `cart_user_id` int(11) NOT NULL
+  `cart_user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id_user`, `user_firstname`, `user_lastname`, `user_email`, `user_password`, `cart_user_id`) VALUES
+(1, 'Tom', 'Pecheux', 'tompecheux@aol.fr', 'blabla', NULL);
 
 --
 -- Index pour les tables déchargées
@@ -150,7 +157,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
