@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+
+    <!-- A MODIFIER SUIVANT LES FICHIERS D'AURELIEN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js" integrity="sha512-WL6WGKMPBiM9PnHRYIn5YEtq0Z8XP4fkVb4qy7PP4vhmYQErJ/dySyXuFIMDf1eEYCXCrQrMJfkNwKc9gsjTjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+    <!-- -->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
+
+    <title>VISAJ</title>
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="images/logo.png" class="img-fluid logo">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="index.html" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white fs-3">Contact</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white fs-3">A propos</a></li>
+                </ul>
+
+                <div class="text-left ms-3 me-lg-auto mb-2 mb-md-0">
+                    <a href="#" class="btn btn-primary me-2">COMPARER</a>
+                </div>
+
+                <div class="text-left ms-3 me-lg-auto mb-2 mb-md-0">
+                    <a href="panier.html"><img src="images/caddie.png" class="img-thumbnail-panier" alt="panier" width="50px"></a>
+                </div>
+
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                    <a href="#" class="btn btn-outline-light me-2">Connexion</a>
+                    <a href="#" class="btn btn-secondary">S'inscrire</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- CORPS -->
+    <div class="container mt-3 mb-3 d-flex flex-column" id="corps_panier">
+
+
+            <ul class="list-group">
+
+                <!-- TITRES DES COLONNES-->
+                <li class="list-group-item">
+                    <div class="row align-items-center align-self-center">
+                        <div class="col text-center">
+                            <h5>Image du produit</h5>
+                        </div>
+                        <div class="col text-center">
+                            <h5>Nom du produit</h5>
+                        </div>
+                        <div class="col text-center">
+                            <h5>Prix du produit</h5>
+                        </div>
+                        <div class="col text-center">
+                            <a href="#" class="btn btn-primary me-2">SUPPRIMER SELECTION</a>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- AFFICHAGE DES PRODUITS DANS LE PANIER-->
+                <li class="list-group-item">
+                    <div class="row align-items-center align-self-center">
+                        <div class="col text-center">
+                            <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="img-thumbnail" alt="perruque blonde" width="100px">
+                        </div>
+                        <div class="col text-center">
+                            <h5>Perruque blonde</h5>
+                        </div>
+                        <div class="col text-center">
+                            <h5>5€</h5>
+                        </div>
+                        <div class="col text-center">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center align-self-center">
+                        <div class="col text-center">
+                            <img src="images/produits/perruque-harley-quinn-suicide-squad-femme.jpg" class="img-thumbnail" alt="perruque blonde" width="100px">
+                        </div>
+                        <div class="col text-center">
+                            <h5>Perruque Harley Queen</h5>
+                        </div>
+                        <div class="col text-center">
+                            <h5>5€</h5>
+                        </div>
+                        <div class="col text-center">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center align-self-center">
+                        <div class="col text-center">
+                            <img src="images/produits/perruque-blonde-platine-star-de-cinema-de.jpg" class="img-thumbnail" alt="perruque blonde" width="100px">
+                        </div>
+                        <div class="col text-center">
+                            <h5>Perruque blonde</h5>
+                        </div>
+                        <div class="col text-center">
+                            <h5>5€</h5>
+                        </div>
+                        <div class="col text-center">
+                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row align-items-center align-self-center">
+                        <div class="col">
+                        </div>
+                        <div class="col text-center">
+                        </div>
+                        <div class="col text-center">
+                            <h5>Total du panier</h5>
+                        </div>
+                        <div class="col text-center">
+                            <h5>20€</h5>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+    </div>
+
+    <!-- FOOTER MIN WIDTH 630px-->
+    <footer class="footer-xl bg-dark d-flex flex-row justify-content-around align-items-center p-3 border-top">
+        <p class="mb-0 text-muted">© 2021 Company, Inc</p>
+
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 link-dark text-decoration-none">
+            <img src="images/logo.png" class="img-fluid logo">
+        </a>
+
+        <div class="d-flex flex-row">
+            <ul class="nav">
+                <li><a href="#" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">Contact</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">A propos</a></li>
+            </ul>
+
+            <button type="button" class="btn btn-primary me-2">COMPARER</button>
+        </div>
+    </footer>
+
+    <!-- FOOTER MAX WIDTH 629px-->
+    <footer class="footer-l bg-dark d-flex flex-column justify-content-around align-items-center p-3 border-top">
+        <p class="mb-0 text-muted">© 2021 Company, Inc</p>
+
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 link-dark text-decoration-none">
+            <img src="images/logo.png" class="img-fluid logo">
+        </a>
+
+        <div class="d-flex flex-row">
+            <ul class="nav">
+                <li><a href="#" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">Contact</a></li>
+                <li><a href="#" class="nav-link px-2 text-white fs-3">A propos</a></li>
+            </ul>
+
+            <button type="button" class="btn btn-primary me-2">COMPARER</button>
+        </div>
+    </footer>
+
+</body>
+</html>
