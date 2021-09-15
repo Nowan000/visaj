@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 14 sep. 2021 à 13:37
+-- Généré le : mer. 15 sep. 2021 à 10:55
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -34,6 +34,13 @@ CREATE TABLE `carts` (
   `product_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `carts`
+--
+
+INSERT INTO `carts` (`id_cart`, `user_id`, `product_id`) VALUES
+(1, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -56,7 +63,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_product`, `product_name`, `product_type`, `cart_product_id`, `product_image`, `product_price`, `product_description`) VALUES
-(1, 'Perruque Daenerys Targaryen', 'perruque', NULL, 'https://litb-cgis.rightinthebox.com/images/640x640/202011/hrspym1605704568540.jpg', 22, 'Longue perruque blonde ondulée bouclée pour fête costumée et utilisation quotidienne mère des dragons'),
+(1, 'Perruque Daenerys Targaryen', 'perruque', 1, 'https://litb-cgis.rightinthebox.com/images/640x640/202011/hrspym1605704568540.jpg', 22, 'Longue perruque blonde ondulée bouclée pour fête costumée et utilisation quotidienne mère des dragons'),
 (2, 'Perruque Hocus Pocus', 'perruque', NULL, 'https://litb-cgis.rightinthebox.com/images/640x640/202009/jmffsc1600946881494.jpg?fmt=webp&v=1', 17, 'Perruque Winifred Sanderson Hocus Pocus boucles serrées, rouge foncé de longueur moyenne'),
 (3, 'Perruque Cruella', 'perruque', NULL, 'https://litb-cgis.rightinthebox.com/images/640x640/202107/bps/product/inc/oudahd1625119239511.jpg?fmt=webp&v=1', 13, 'Perruque blanche et noire Cruella Denfert, carré'),
 (4, 'Perruque la Petite Sirène\r\n', 'perruque', NULL, 'https://litb-cgis.rightinthebox.com/images/640x640/202108/bps/product/inc/dlovkw1627898107548.jpg?fmt=webp&v=1', 17, 'Perruque dela petite sirène, ariel, longue, rouge'),
@@ -77,9 +84,9 @@ INSERT INTO `products` (`id_product`, `product_name`, `product_type`, `cart_prod
 (20, 'Kit maquillage diable ', 'kit maquillage', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/kit-maquillage-diable--mw-104650-1.jpg', 20, 'Kit maquillage diable sept pièces (crème, corne, colle, lentilles de contact)\r\n    '),
 (21, 'Kit maquillage clown effrayant ', 'kit maquillage', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/kit-maquillage-clown-effrayant--mw-104651-1.jpg', 25, 'Kit maquillage clown effrayant cinq pièces (crème, nez, lentilles de contact)'),
 (22, 'Kit vampire Deluxe ', 'kit maquillage', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/kit-vampire-deluxe--mw-104546-1.jpg', 50, 'Kit vampire Deluxe (crème, front, joues, dents, colle, peau, sang)'),
-(23, 'Kit maquillage zombie ', 'kit maquillage', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/kit-maquillage-zombie--mw-104648-1.jpg', 15, 'Kit maquillage zombie six pièces (crème, peau, croute, lentille sde contact)'),
+(23, 'Kit maquillage zombie ', 'kit maquillage', 1, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/kit-maquillage-zombie--mw-104648-1.jpg', 15, 'Kit maquillage zombie six pièces (crème, peau, croute, lentille sde contact)'),
 (24, 'Lentilles de contact berserk ', 'lentilles', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/lentilles-de-contact-berserk--mw-130320-1.jpg', 15, 'Une paire de lentilles de contact infecté sans correction'),
-(25, 'Lentilles de contact Félin jaunes ', 'lentilles', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/lentilles-de-contact-predateur-jaunes--mw-117331-1.jpg', 17, 'Une paire de lentilles de contact prédateur jaune sans correction'),
+(25, 'Lentilles de contact Félin jaunes ', 'lentilles', 1, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/lentilles-de-contact-predateur-jaunes--mw-117331-1.jpg', 17, 'Une paire de lentilles de contact prédateur jaune sans correction'),
 (26, 'Lentilles de contact Uruk-hai ', 'lentilles', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/lentilles-de-contact-uruk-hai--mw-117327-1.jpg', 13, 'Une paire de lentilles de contact Uruk-hai sans correction'),
 (27, 'Lentilles de contact Sclera rouges ', 'lentilles', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/lentilles-de-contact-sclera-rouges--mw-118563-1.jpg', 59, 'Une paire de lentilles de contact Sclera rouges sans correction'),
 (28, 'Peau effet spécial horreur ', 'maquillage', NULL, 'https://i.mmo.cm/is/image/mmoimg/mw-product-zoom/peau-effet-special-horreur--101579-horror-skin-haut-fake-skin.jpg', 4, 'Flacon peau effets spéciaux horreur'),
@@ -111,7 +118,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `user_firstname`, `user_lastname`, `user_email`, `user_password`, `cart_user_id`) VALUES
-(1, 'Tom', 'Pecheux', 'tompecheux@aol.fr', 'blabla', NULL);
+(1, 'Tom', 'Pecheux', 'tompecheux@aol.fr', 'blabla', 1);
 
 --
 -- Index pour les tables déchargées
@@ -145,7 +152,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `products`
