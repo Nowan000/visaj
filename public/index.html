@@ -7,6 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
+
+    <!-- A MODIFIER SUIVANT LES FICHIERS D'AURELIEN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js" integrity="sha512-WL6WGKMPBiM9PnHRYIn5YEtq0Z8XP4fkVb4qy7PP4vhmYQErJ/dySyXuFIMDf1eEYCXCrQrMJfkNwKc9gsjTjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+    <!-- -->
+
     <link rel="stylesheet" type="text/css" href="css/style.css" media="all"/>
 
     <title>VISAJ</title>
@@ -18,28 +24,31 @@
     <header class="p-3 bg-dark text-white">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img src="images/logo.png" class="img-fluid logo">
                 </a>
 
                 <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
+                    <li><a href="index.html" class="nav-link px-2 text-secondary fs-3">Boutique</a></li>
                     <li><a href="#" class="nav-link px-2 text-white fs-3">Contact</a></li>
                     <li><a href="#" class="nav-link px-2 text-white fs-3">A propos</a></li>
                 </ul>
 
                 <div class="text-left ms-3 me-lg-auto mb-2 mb-md-0">
-                    <button type="button" class="btn btn-primary me-2">COMPARER</button>
+                    <a href="#" class="btn btn-primary me-2">COMPARER</a>
+                </div>
+
+                <div class="text-left ms-3 me-lg-auto mb-2 mb-md-0">
+                    <a href="panier.html"><img src="images/caddie.png" class="img-thumbnail-panier" alt="panier" width="50px"></a>
                 </div>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                 </form>
 
-
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Connexion</button>
-                    <button type="button" class="btn btn-secondary">S'inscrire</button>
+                    <a href="#" class="btn btn-outline-light me-2">Connexion</a>
+                    <a href="#" class="btn btn-secondary">S'inscrire</a>
                 </div>
             </div>
         </div>
@@ -47,58 +56,16 @@
 
     <!-- CORPS -->
     <div class="container mb-3 d-flex flex-column" id="corps">
+
+
+        <!-- CHARGEMENT DU JS -->
+
+
         <!-- MIN WIDTH 1400px => affiche 4 articles sur une ligne -->
         <!--
         Intégrer boucle de récup produit :
             Une ligne affiche 4 produits
         -->
-
-        <script>
-
-            /* REQUETE SQL RECUPERATION DES PRODUITS*/
-
-            /* ATTRIBUTS DES PRODUITS */
-            let imgSrc = 'images/produits/perruque-blonde-platine-star-de-cinema-de.jpg';
-            let titre = 'titre1';
-            let description = 'blabla';
-            let prix = '20';
-            let typeProduit;
-            let id;
-            let nbProduits = 34;
-            let nbLignes = nbProduits/4;
-
-            var ligne = '<div class="container-xxl mt-3 d-flex flex-row justify-content-around">';
-
-            var produit = '<div class="card me-3 sm" style="width: 18rem;">\n' +
-                '                <img src="' + imgSrc + '" class="card-img-top" alt="' + titre + '">\n' +
-                '                <div class="card-body">\n' +
-                '                    <h5 class="card-title">' + titre + '</h5>\n' +
-                '                    <p class="card-text">' + description + '</p>\n' +
-                '                    <div class="d-flex flex-row justify-content-around align-items-center">\n' +
-                '                        <a href="#" class="btn btn-primary">Ajouter</a>\n' +
-                '                        <div class="form-check form-switch">\n' +
-                '                            <input class="form-check-input" type="checkbox" id="' + id + '">\n' +
-                '                            <label class="form-check-label" for="' + id + '">A COMPARER</label>\n' +
-                '                        </div>\n' +
-                '                    </div>\n' +
-                '                </div>\n' +
-                '            </div>';
-
-            var finDiv = '</div>';
-
-            for (i=0; i<nbLignes; i++) {
-
-                document.getElementById("corps").innerHTML += ligne;
-
-                for (c=0; c<4; c++) {
-                    document.getElementById("corps").innerHTML += produit;
-                }
-
-                document.getElementById("corps").innerHTML += finDiv;
-            }
-
-
-        </script>
 
         <div class="container-xxl mt-3 d-flex flex-row justify-content-around">
             <div class="card me-3 sm" style="width: 18rem;">
