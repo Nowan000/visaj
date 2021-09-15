@@ -1,5 +1,5 @@
 let socket = io();
-let windowsSize = $(window).width();
+let windowsSize = window.innerWidth;
 
 socket.on('produits', result => {
 
