@@ -9,6 +9,13 @@ const fs = require('fs');
 
 app.use(bodyParser.json());
 
+let compare = document.querySelector('.btn-compare'); 
+compare.addEventListener('click', compareproducts)
+
+function compareproducts() {
+    
+}
+
 app.get('/products', (req, res) => {
   
     fs.appendFile('logs.txt', 'errors', (error) => {
