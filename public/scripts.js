@@ -1,37 +1,49 @@
 let socket = io();
 let isConnected = false;
-
+let userId = 1;
 //connection
-let userLName = document.querySelector('#user_lastname');
-let userFName = document.querySelector('#user_firstname');
+const form = document.querySelector('form');
+// let connectionForm = document.querySelector('#connexion');
 let userPwd = document.querySelector('#user_password');
 let userMail = document.querySelector('#user_email');
-let signInForm = document.querySelector('#signIn');
-let connectionForm = document.querySelector('#connexion');
-
-signInForm.addEventListener('submit', e => {
+form.addEventListener('submit', e => {
     e.preventDefault();
-    let newUser = {
-        lastName : userLName.value,
-        firstName : userFName.value,
-        password : userPwd.value,
-        email: userMail.value,
-    }
-    socket.emit('signIn', newUser);
-});
+    console.log(form.action);
+    if (form.action === "http://localhost:8080/inscription"){
+        
+        let userLName = document.querySelector('#user_lastname');
+        let userFName = document.querySelector('#user_firstname');
 
-connectionForm.addEventListener('submit', () => {
-    let userConnection = {
-        email: userMail.value,
-        password : userPwd.value,
+        
+        let newUser = {
+            lastName : userLName.value,
+            firstName : userFName.value,
+            password : userPwd.value,
+            email: userMail.value,
+            userId: userId,
+        }
+        console.log("inscription");
+        socket.emit('signIn', newUser);
+        userId++;
+    } else if (form.action === "http://localhost:8080/connexion"){
+        
+
+        let userConnexion = {
+                    email: userMail.value,
+                    password : userPwd.value,
+                }
+                socket.emit('connexion', userConnexion);
+                
     }
-    socket.emit('connection', userConnection);
+
 });
 
 socket.on('isConnect', state => {
-    isConnected = state;
+    isConnected = true;
+    console.log(`connecté : ${isConnected}`);
 });
 
-socket.on('disconnect', () => {
+socket.on('deco', () => {
     isConnected = false;
+    console.log(`connecté : ${isConnected}`);
 });

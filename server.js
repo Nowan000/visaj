@@ -9,7 +9,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'visaj',
+    database: 'visaj'
 });
 
 db.connect();
@@ -17,35 +17,56 @@ app.use(express.static(path.join(__dirname, '/public')))
     .get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     })
-    .post('/inscription', (req, res) => {
+    .get('/inscription', (req, res) => {
         res.sendFile(__dirname + '/public/inscription.html');
-        res.redirect('/');
+    })
+    .get('/connexion', (req, res) => {
+        res.sendFile(__dirname + '/public/connexion.html');
+    })
+    .post('/inscription', (req, res) => {
+        res.sendFile(__dirname + '/index.html');
     })
     .post('/connexion', (req, res) => {
-        res.sendFile(__dirname + '/public/connexion.html');
+        res.sendFile(__dirname + '/index.html');
     });
 
-io.on('inscription', function (socket) {
+io.on('connection', function (socket) {
     socket.on('signIn', newUser => {
         db.query(
-            `INSERT INTO table users (user_firstname, user_lastname, user_password, user_email) VALUES (
-                "${newUser.firstName}",
-                "${newUser.lastName}", 
-                "${newUser.password}", 
-                "${newUser.email}"
-            )`
-        );
-    });
-});
-
-io.on('/connexion', function (socket) {
-    socket.on('connection', userConnexion => {
-        db.query(`SELECT user_email, user_password FROM users WHERE user_email = ${userConnection.email}`, function (err, result) {
+            `INSERT INTO carts (user_id) VALUES ( 
+                ${newUser.userId}
+            )`, function (err) {
             if (err) throw err;
-            if (result.user_password === userConnection.password) {
-                socket.emit('isConnect', true);
+
+            db.query(`SELECT id_cart FROM carts WHERE user_id = ${newUser.userId}`, (err, result) => {
+                if (err) throw err;
+                console.log(result[0].id_cart);
+                db.query(`INSERT INTO users (user_firstname, user_lastname, user_password, user_email, cart_user_id) VALUES (
+                    "${newUser.firstName}",
+                    "${newUser.lastName}", 
+                    "${newUser.password}", 
+                    "${newUser.email}",
+                    ${result[0].id_cart})`
+                ), function (err) {
+                        if (err) throw err;
+                        console.log("user added to database successfully");
+                    }
+            });
+        });
+    });
+
+    socket.on('connexion', userConnexion => {
+        db.query(`SELECT user_password FROM users WHERE user_email = "${userConnexion.email}"`, function (err, result) {
+            if (err) throw err;
+            if (result[0].user_password == userConnexion.password) {
+                socket.emit('isConnect');
+            } else {
+                console.log("wrong password");
             }
         });
+    });
+    socket.on('disconnect', () => {
+        socket.emit('deco');
     });
 });
 
