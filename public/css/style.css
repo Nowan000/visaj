@@ -4,6 +4,16 @@ body {
     background: url("../images/background.jpg");
 }
 
+h1 {
+    color:
+            #ff13a7;
+}
+
+section {
+    background-color: #444444;
+    border-radius: 20px;
+}
+
 /*** HEADER ***/
 
 .b-example-divider {
@@ -76,6 +86,12 @@ body {
     background-color: #ff13a7;
     border-color: #444444;
 }
+
+#btSub {
+    background-color: #ff13a7;
+}
+
+/*** IMAGES ***/
 
 .img-thumbnail-panier {
     padding: .25rem;
