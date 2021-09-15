@@ -5,8 +5,12 @@ body {
 }
 
 h1 {
-    color:
-            #ff13a7;
+    color: #ff13a7;
+}
+
+.text-secondary {
+    --bs-text-opacity: 1;
+    color: rgba(255,19,167,var(--bs-text-opacity))!important;
 }
 
 section {
