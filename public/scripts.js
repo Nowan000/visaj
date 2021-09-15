@@ -7,12 +7,10 @@ let userFName = document.querySelector('#user_firstname');
 let userPwd = document.querySelector('#user_password');
 let userMail = document.querySelector('#user_email');
 let signInForm = document.querySelector('#signIn');
-let connexionForm = document.querySelector('#connexion');
+let connectionForm = document.querySelector('#connexion');
 
-
-
-
-signInForm.addEventListener('submit', () => {
+signInForm.addEventListener('submit', e => {
+    e.preventDefault();
     let newUser = {
         lastName : userLName.value,
         firstName : userFName.value,
@@ -32,4 +30,8 @@ connectionForm.addEventListener('submit', () => {
 
 socket.on('isConnect', state => {
     isConnected = state;
+});
+
+socket.on('disconnect', () => {
+    isConnected = false;
 });
