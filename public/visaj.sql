@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 15 sep. 2021 à 15:34
+-- Généré le : mer. 15 sep. 2021 à 15:56
 -- Version du serveur :  10.4.18-MariaDB
 -- Version de PHP : 8.0.3
 
@@ -27,16 +27,19 @@ SET time_zone = "+00:00";
 -- Structure de la table `carts`
 --
 
+DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
-  `id_cart` int(11) NOT NULL
+  `id_cart` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `carts`
 --
 
-INSERT INTO `carts` (`id_cart`) VALUES
-(1);
+INSERT INTO `carts` (`id_cart`, `user_id`, `product_id`) VALUES
+(1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -44,6 +47,7 @@ INSERT INTO `carts` (`id_cart`) VALUES
 -- Structure de la table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
   `id_product` int(11) NOT NULL,
   `product_name` varchar(255) NOT NULL,
@@ -99,6 +103,7 @@ INSERT INTO `products` (`id_product`, `product_name`, `product_type`, `cart_prod
 -- Structure de la table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `user_firstname` varchar(55) NOT NULL,
@@ -123,7 +128,9 @@ INSERT INTO `users` (`id_user`, `user_firstname`, `user_lastname`, `user_email`,
 -- Index pour la table `carts`
 --
 ALTER TABLE `carts`
-  ADD PRIMARY KEY (`id_cart`);
+  ADD PRIMARY KEY (`id_cart`),
+  ADD UNIQUE KEY `user_id` (`user_id`),
+  ADD UNIQUE KEY `product_id` (`product_id`);
 
 --
 -- Index pour la table `products`
