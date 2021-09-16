@@ -31,6 +31,13 @@ app.use(express.static(path.join(__dirname, '/public')))
     });
 
 io.on('connection', function (socket) {
+    db.query(
+        `SELECT * FROM products`, function (err, result) {
+            if (err) throw err;
+
+            socket.emit('produits', result);
+        }
+    );
     socket.on('signIn', newUser => {
         db.query(
             `INSERT INTO carts (user_id) VALUES ( 
