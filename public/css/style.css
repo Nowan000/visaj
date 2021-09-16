@@ -58,6 +58,12 @@ section {
     height: auto;
 }
 
+/*** PRODUITS ***/
+
+.sizeButtonCard {
+    width: 100%;
+}
+
 /*** BOUTTON ***/
 
 .btn-primary {
@@ -101,6 +107,10 @@ section {
     padding: .25rem;
     max-width: 100%;
     height: auto;
+}
+
+.card-img-top {
+    max-width: 286px;
 }
 
 @media (min-width: 1300px) {

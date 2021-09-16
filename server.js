@@ -2,8 +2,8 @@ const path = require('path');
 const express= require('express');
 
 const app = express();
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
+const serverNode = require('http').createServer(app);
+const io = require('socket.io')(serverNode);
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
@@ -19,31 +19,19 @@ app.use(express.static(path.join(__dirname, '/public')))
         res.sendFile(__dirname + '/index.html');
     })
 
-db.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected to database");
+db.connect();
 
-    var result = db.query(
+io.on('connection', function (socket) {
+
+    db.query(
         `SELECT * FROM products`, function (err, result) {
             if (err) throw err;
-            console.log(result);
 
-            // Object.keys(result).forEach(function(key) {
-            //     var row = result[key];
-            //     console.log(row.id_product)
-            // });
-
-
+            socket.emit('produits', result);
         }
     );
 
 
-    io.on('index', function (socket) {
-        socket.emit('produits', result);
-    });
-
-
-
 });
 
-server.listen(8080);
+serverNode.listen(8182);
