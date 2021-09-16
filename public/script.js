@@ -1,20 +1,20 @@
-let socket = io();
-
+// let socket = io();
+console.log(document.location);
 let windowsSize = window.innerWidth;
 
 load();
 
-jQuery(function($){
-    var windowWidth = $(window).width();
-    var windowHeight = $(window).height();
+// jQuery(function($){
+//     var windowWidth = $(window).width();
+//     var windowHeight = $(window).height();
 
-    $(window).resize(function() {
-        if(windowWidth != $(window).width() || windowHeight != $(window).height()) {
-            setTimeout(function(){ location.reload(); }, 500);
-            return;
-        }
-    });
-});
+//     $(window).resize(function() {
+//         if(windowWidth != $(window).width() || windowHeight != $(window).height()) {
+//             setTimeout(function(){ location.reload(); }, 500);
+//             return;
+//         }
+//     });
+// });
 
 function load() {
 
@@ -51,7 +51,7 @@ function load() {
                     '                    <h5 class="card-title">' + titre + '</h5>\n' +
                     '                    <p class="card-text">' + description + '</p>\n' +
                     '                    <div class="d-flex flex-row justify-content-around align-items-center sizeButtonCard">\n' +
-                    '                        <a href="#" class="btn btn-primary">Ajouter</a>\n' +
+                    '                        <button type="submit" class="btn btn-primary" id="'+ id +'" onclick="addCart(id)">Ajouter</button>\n' +
                     '                        <div class="form-check form-switch">\n' +
                     '                            <input class="form-check-input" type="checkbox" id="' + id + '">\n' +
                     '                            <label class="form-check-label" for="' + id + '">A COMPARER</label>\n' +
@@ -106,7 +106,7 @@ function load() {
                     '                    <h5 class="card-title">' + titre + '</h5>\n' +
                     '                    <p class="card-text">' + description + '</p>\n' +
                     '                    <div class="d-flex flex-row justify-content-around align-items-center sizeButtonCard">\n' +
-                    '                        <a href="#" class="btn btn-primary">Ajouter</a>\n' +
+                    '                        <button type="submit" class="btn btn-primary" id="'+ id +'" onclick="addCart(id)">Ajouter</button>\n' +
                     '                        <div class="form-check form-switch">\n' +
                     '                            <input class="form-check-input" type="checkbox" id="' + id + '">\n' +
                     '                            <label class="form-check-label" for="' + id + '">A COMPARER</label>\n' +
@@ -161,7 +161,7 @@ function load() {
                     '                    <h5 class="card-title">' + titre + '</h5>\n' +
                     '                    <p class="card-text">' + description + '</p>\n' +
                     '                    <div class="d-flex flex-row justify-content-around align-items-center sizeButtonCard">\n' +
-                    '                        <a href="#" class="btn btn-primary">Ajouter</a>\n' +
+                    '                        <button type="submit" class="btn btn-primary" id="'+ id +'" onclick="addCart(id)">Ajouter</button>\n' +
                     '                        <div class="form-check form-switch">\n' +
                     '                            <input class="form-check-input" type="checkbox" id="' + id + '">\n' +
                     '                            <label class="form-check-label" for="' + id + '">A COMPARER</label>\n' +
@@ -216,7 +216,7 @@ function load() {
                     '                    <h5 class="card-title">' + titre + '</h5>\n' +
                     '                    <p class="card-text">' + description + '</p>\n' +
                     '                    <div class="d-flex flex-row justify-content-around align-items-center sizeButtonCard">\n' +
-                    '                        <a href="#" class="btn btn-primary">Ajouter</a>\n' +
+                    '                        <button type="submit" class="btn btn-primary" id="'+ id +'" onclick="addCart(id)">Ajouter</button>\n' +
                     '                        <div class="form-check form-switch">\n' +
                     '                            <input class="form-check-input" type="checkbox" id="' + id + '">\n' +
                     '                            <label class="form-check-label" for="' + id + '">A COMPARER</label>\n' +
@@ -241,4 +241,20 @@ function load() {
             });
         }
     });
+}
+function addCart(id) {
+
+    let idProduct = document.getElementById(id).id;
+
+    /*TO DO : RECUPERER USER ID */
+    let idUser = 50;
+
+    let newCart = {
+        idProduct : idProduct,
+        idUser : idUser,
+    }
+
+    console.log(newCart);
+
+    socket.emit('addCart', newCart);
 }

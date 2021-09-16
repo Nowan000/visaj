@@ -17,6 +17,9 @@ app.use(express.static(path.join(__dirname, '/public')))
     .get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html');
     })
+    .get('/index', (req, res) => {
+        res.sendFile(__dirname + '/index.html');
+    })
     .get('/inscription', (req, res) => {
         res.sendFile(__dirname + '/public/inscription.html');
     })
@@ -31,13 +34,6 @@ app.use(express.static(path.join(__dirname, '/public')))
     });
 
 io.on('connection', function (socket) {
-    db.query(
-        `SELECT * FROM products`, function (err, result) {
-            if (err) throw err;
-
-            socket.emit('produits', result);
-        }
-    );
     socket.on('signIn', newUser => {
         db.query(
             `INSERT INTO carts (user_id) VALUES ( 
@@ -47,17 +43,13 @@ io.on('connection', function (socket) {
 
             db.query(`SELECT id_cart FROM carts WHERE user_id = ${newUser.userId}`, (err, result) => {
                 if (err) throw err;
-                console.log(result[0].id_cart);
                 db.query(`INSERT INTO users (user_firstname, user_lastname, user_password, user_email, cart_user_id) VALUES (
                     "${newUser.firstName}",
                     "${newUser.lastName}", 
                     "${newUser.password}", 
                     "${newUser.email}",
                     ${result[0].id_cart})`
-                ), function (err) {
-                        if (err) throw err;
-                        console.log("user added to database successfully");
-                    }
+                ), function (err) {if (err) throw err;}
             });
         });
     });
@@ -68,6 +60,7 @@ io.on('connection', function (socket) {
             if (result[0].user_password == userConnexion.password) {
                 socket.emit('isConnect');
             } else {
+                socket.emit('errorCo');
                 console.log("wrong password");
             }
         });
@@ -75,7 +68,17 @@ io.on('connection', function (socket) {
     socket.on('disconnect', () => {
         socket.emit('deco');
     });
+
+
+socket.on('addCart', newCart => {
+
+    console.log(newCart);
+
+    db.query(
+        `INSERT INTO carts (user_id, product_id)
+         VALUES (${newCart.idUser}, ${newCart.idProduct})`, function (err) {
+            if (err) throw err;
+        });
 });
-
-
+});
 server.listen(8080);
